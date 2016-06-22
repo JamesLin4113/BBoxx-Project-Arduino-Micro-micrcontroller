@@ -194,6 +194,8 @@ void loop() {
     }else{
       //reset count to 0 if the battery is not in deep discharging mode
       countDeepDischarged = 0;
+      digitalWrite(lightMosfetGate, HIGH);
+      digitalWrite(phoneMosfetGate, HIGH);
       delay(T*0.4);
     }
     
@@ -288,6 +290,8 @@ void loop() {
       digitalWrite(ledGreenPin4, LOW);
       delay(T/10); 
     }else{
+      digitalWrite(lightMosfetGate, HIGH);
+      digitalWrite(phoneMosfetGate, HIGH);
       delay(T*0.4);
     }
     //************voltage method for full charge mode*****************
@@ -312,6 +316,8 @@ void loop() {
   else{//neither charging or discharging 
     //do nothing but delay 0.4*T miliseconds
     delay(0.4*T);
+    digitalWrite(lightMosfetGate, HIGH);
+    digitalWrite(phoneMosfetGate, HIGH);
   }
 
     
